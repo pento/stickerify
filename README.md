@@ -20,14 +20,11 @@ Check out this codepen demo: https://codepen.io/markus-wa/pen/eYEMvxd - thanks t
 ```
 
 ```js
-const img = new Image(),
-  out = document.getElementByID("out");
+const out = document.getElementById("out");
 
-img.crossOrigin = 'anonymous';
-img.onload = () => {
-  out.src = stickerify(img, 3, 'white').toDataURL();
-};
-img.src = 'https://example.com/url-to-transparanet-img.png';
+stickerify( 'https://raw.githubusercontent.com/markus-wa/stickerify/main/example/input.png', 10, 'white' )
+  .then((img) => stickerify(img, 1, 'grey'))
+  .then((img) => out.src = img);
 ```
 
 `stickerify()` returns a [HTML5 canvas element](https://www.w3schools.com/html/html5_canvas.asp)
